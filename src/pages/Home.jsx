@@ -1,11 +1,11 @@
-
-
+import '../styles/Home.css';
+import Carrousel from '../components/Carrousel';
 
 
 function Home() {
     return (
       <>
-        aca va el carrousel  
+       <div className="fila" ><Carrousel /></div>  
 
       </>
     );
