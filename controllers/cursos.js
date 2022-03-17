@@ -13,6 +13,11 @@ const cursosPut = async (req, res = response) => {
   res.json(cursoUpdated);
 };
 
+const cursosGetById = async (req, res) => {
+  const { id } = req.params;
+  const cursos = await Cursos.find({id_curso: id})
+  res.json(cursos)
+}
 
 const cursosPost = async (req, res = response) => {
   const { stock,id_tecnologia,descripcion,id_proveedor,titulo,img,duracion} = req.body;
@@ -50,6 +55,7 @@ const usuariosDelete = async (req, res = response) => {
 module.exports = {
   cursosGet,
   cursosPut,
-  cursosPost
+  cursosPost,
+  cursosGetById
   //cursosDelete,
 };
