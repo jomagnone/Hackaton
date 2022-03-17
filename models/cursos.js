@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const CursosSchema = Schema({
-  id_curso: { type: Number, required: true },
+  id_curso: { type: Number, required: true , unique: true},
   stock: { type: Number, required: true },
   descripcion: { type: String, required: true },
   id_tecnologia: { type: Number, required: true },

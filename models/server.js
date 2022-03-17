@@ -10,7 +10,6 @@ class Server {
     this.usuariosPath = "/api/usuarios";
     this.cursosPath = "/api/cursos";
     this.asignacionPath = "/api/asignaciones";
-
     //Conectar la base de datos para
     this.conexDB();
     //Middlewares
@@ -32,13 +31,16 @@ class Server {
     this.app.use(express.json());
 
     //Directorio publico
-    this.app.use(express.static("public"));
+    this.app.use(express.static('public'));
+    //this.app.use(express.static("public"));
   }
+  
 
   routes() {
     this.app.use(this.usuariosPath, require("../routes/usuarios"));
     this.app.use(this.cursosPath, require("../routes/cursos"));
     this.app.use(this.asignacionPath, require("../routes/asignaciones"));
+
   }
 
   listen() {

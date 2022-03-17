@@ -2,9 +2,7 @@ const Cursos = require("../models/cursos")
 
 const cursosGet = async (req, res) => {
   const cursos = await Cursos.find()
-  res.json({
-    cursos,
-  })
+  res.json(cursos)
 }
 
 const cursosPut = async (req, res = response) => {
@@ -12,7 +10,7 @@ const cursosPut = async (req, res = response) => {
   const { stock,id_tecnologia,descripcion,id_proveedor,titulo,img,duracion} = req.body;
   cursoUpdated= { id_curso: id,stock,descripcion,id_tecnologia,id_proveedor,titulo,img,duracion}
   await Cursos.findOneAndUpdate({id_curso: id}, cursoUpdated);
-  res.json({ cursoUpdated });
+  res.json(cursoUpdated);
 };
 
 
@@ -23,7 +21,6 @@ const cursosPost = async (req, res = response) => {
   let elementos = await Cursos.find()
   let newId
   if (elementos.length == 0) {
-    console.log(`elementos: ${elementos}`)
     newId = 1
   } else {
     newId = elementos[elementos.length - 1].id_curso + 1
@@ -32,9 +29,7 @@ const cursosPost = async (req, res = response) => {
   const contenido = new Cursos(newElem)
   await contenido.save()
 
-  res.json({
-    curso,
-  });
+  res.json(newElem);
 };
 /*
 const usuariosDelete = async (req, res = response) => {
