@@ -74,7 +74,6 @@ const usuariosLogin = async (req, res = response) => {
   let elementos = await Usuario.find({
     legajo: legajo,
   });
-  console.log(elementos);
   if (elementos.length === 0) {
     res.status(401).json({
       Error: "legajo inexistente",
@@ -82,7 +81,7 @@ const usuariosLogin = async (req, res = response) => {
   } else {
     const resultado = await bcryptjs.compare(password, elementos[0].password);
     resultado
-      ? res.json(elementos[0].id_usuario)
+      ? res.json({ id_usuario: elementos[0].id_usuario })
       : res.status(401).json({
           Error: "Contraseña mal",
         });
