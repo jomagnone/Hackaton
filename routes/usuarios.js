@@ -12,6 +12,7 @@ const {
   usuariosPut,
   usuariosPost,
   usuariosDelete,
+  usuariosLogin,
 } = require("../controllers/usuarios");
 
 const router = Router();
@@ -50,6 +51,16 @@ router.delete(
     validarCampos,
   ],
   usuariosDelete
+);
+
+router.post(
+  "/login",
+  [
+    check("legajo", "El legajo es obligatorio").not().isEmpty(),
+    check("password", "El password es obligatorio").not().isEmpty(),
+    validarCampos,
+  ],
+  usuariosLogin
 );
 
 module.exports = router;

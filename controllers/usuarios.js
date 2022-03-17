@@ -4,11 +4,6 @@ const Usuario = require("../models/usuario");
 
 const usuariosGet = async (req = request, res = response) => {
   const { limite = 5, desde = 0 } = req.query;
-  // const usuarios = await Usuario.find({ estado: true })
-  //   .skip(Number(desde))
-  //   .limit(Number(limite));
-
-  // const total = await Usuario.countDocuments({ estado: true });
 
   //Mas eficiente en tiempo
   const [total, usuarios] = await Promise.all([
@@ -49,7 +44,6 @@ const usuariosPost = async (req, res = response) => {
   } else {
     newId = elementos[elementos.length - 1].id_usuario + 1;
   }
-  // usuario = { ...usuario, id_usuario: newId };
   const salt = bcryptjs.genSaltSync();
 
   let usuario = new Usuario({
@@ -60,12 +54,9 @@ const usuariosPost = async (req, res = response) => {
     rol,
     id_usuario: newId,
   });
-  //Encriptar la contraseña, el genSaltSync genera el nivel de encriptacion
-  // usuario.password = bcryptjs.hashSync(password, salt);
 
   // Guardar en BD
   await usuario.save();
-
   res.json({
     usuario,
   });
@@ -73,16 +64,31 @@ const usuariosPost = async (req, res = response) => {
 
 const usuariosDelete = async (req, res = response) => {
   const { id } = req.params;
-
-  //Fisicamente lo borramos
-  // const usuario = await Usuario.findByIdAndDelete(id);
-
   //Baja logica
   const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
-
   res.json({
     usuario,
   });
+};
+
+const usuariosLogin = async (req, res = response) => {
+  const { legajo, password } = req.body;
+  let elementos = await Usuario.find({
+    legajo: legajo,
+  });
+  console.log(elementos);
+  if (elementos.length === 0) {
+    res.status(401).json({
+      Error: "legajo inexistente",
+    });
+  } else {
+    const resultado = await bcryptjs.compare(password, elementos[0].password);
+    resultado
+      ? res.json(elementos[0].id_usuario)
+      : res.status(401).json({
+          Error: "Contraseña mal",
+        });
+  }
 };
 
 module.exports = {
@@ -90,4 +96,5 @@ module.exports = {
   usuariosPut,
   usuariosPost,
   usuariosDelete,
+  usuariosLogin,
 };
