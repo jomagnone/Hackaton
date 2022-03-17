@@ -1,12 +1,9 @@
 
 
-
-
-
 function ListCourses() {
     return (
-      <div className="">
-          listado de cursos
+      <div >
+          lista de cursos
       </div>
     );
   }

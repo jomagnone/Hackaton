@@ -3,7 +3,7 @@ import * as React from 'react';
 
 
 
-const MyAprendizaje = () => {
+const MyLearning = () => {
    
 
     return (
@@ -14,5 +14,5 @@ const MyAprendizaje = () => {
             );
     }
 
-export default  MyAprendizaje;
+export default  MyLearning;
     
