@@ -9,16 +9,16 @@ const cursosGet = async (req, res) => {
 
 const cursosPut = async (req, res = response) => {
   const { id } = req.params;
-  const { vacantes,id_tecnologia,id_proveedor,nombre,img,duracion} = req.body;
-  cursoUpdated= { id_curso: id,vacantes,id_tecnologia,id_proveedor,nombre,img,duracion}
+  const { stock,id_tecnologia,descripcion,id_proveedor,titulo,img,duracion} = req.body;
+  cursoUpdated= { id_curso: id,stock,descripcion,id_tecnologia,id_proveedor,titulo,img,duracion}
   await Cursos.findOneAndUpdate({id_curso: id}, cursoUpdated);
   res.json({ cursoUpdated });
 };
 
 
 const cursosPost = async (req, res = response) => {
-  const { vacantes,id_tecnologia,id_proveedor,nombre,img,duracion} = req.body;
-  const curso = { vacantes,id_tecnologia,id_proveedor,nombre,img,duracion}
+  const { stock,id_tecnologia,descripcion,id_proveedor,titulo,img,duracion} = req.body;
+  const curso = { stock,id_tecnologia,descripcion,id_proveedor,titulo,img,duracion}
 
   let elementos = await Cursos.find()
   let newId
