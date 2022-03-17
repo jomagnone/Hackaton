@@ -15,7 +15,7 @@ function App() {
         <header><NavBar /></header>
         <Routes>
           <Route path = "/" element = {<Home />} />
-          <Route path = "/curses/" element = {<ListCourses />} />
+          <Route path = "/curses" element = {<ListCourses />} />
           <Route path = "/curse/:idCourse" element = {<DetailCourse />} /> 
           <Route path = "/myAprendizaje" element = {<MyAprendizaje />} /> 
         </Routes>
