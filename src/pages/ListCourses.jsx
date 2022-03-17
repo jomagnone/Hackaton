@@ -1,9 +1,9 @@
-
+import CourseList from '../components/CourseList';
 
 function ListCourses() {
     return (
       <div >
-          lista de cursos
+          <CourseList />
       </div>
     );
   }
