@@ -39,12 +39,29 @@ const usuariosPut = async (req, res = response) => {
 };
 
 const usuariosPost = async (req, res = response) => {
-  const { nombre, correo, password, rol } = req.body;
-  const usuario = new Usuario({ nombre, correo, password, rol });
+  const { nombre, apellido, legajo, password, rol } = req.body;
 
-  //Encriptar la contraseña, el genSaltSync genera el nivel de encriptacion
+  let elementos = await Usuario.find();
+  let newId;
+  if (elementos.length == 0) {
+    console.log(`elementos: ${elementos}`);
+    newId = 1;
+  } else {
+    newId = elementos[elementos.length - 1].id_usuario + 1;
+  }
+  // usuario = { ...usuario, id_usuario: newId };
   const salt = bcryptjs.genSaltSync();
-  usuario.password = bcryptjs.hashSync(password, salt);
+
+  let usuario = new Usuario({
+    nombre,
+    apellido,
+    legajo,
+    password: bcryptjs.hashSync(password, salt),
+    rol,
+    id_usuario: newId,
+  });
+  //Encriptar la contraseña, el genSaltSync genera el nivel de encriptacion
+  // usuario.password = bcryptjs.hashSync(password, salt);
 
   // Guardar en BD
   await usuario.save();
@@ -68,17 +85,9 @@ const usuariosDelete = async (req, res = response) => {
   });
 };
 
-const usuariosPatch = (req, res = response) => {
-  //
-  res.json({
-    msg: "patch API -controlllers",
-  });
-};
-
 module.exports = {
   usuariosGet,
   usuariosPut,
   usuariosPost,
   usuariosDelete,
-  usuariosPatch,
 };
