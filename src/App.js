@@ -5,6 +5,7 @@ import ListCourses from './pages/ListCourses';
 import DetailCourse from './pages/DetailCourse';
 import MyLearning from './pages/MyLearning';
 import Admin from './pages/Admin';
+import Login from './pages/Login';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path = "/course/:idCourse" element = {<DetailCourse />} /> 
           <Route path = "/myLearning" element = {<MyLearning />} /> 
           <Route path = "/admin" element = {<Admin />} /> 
+          <Route path = "/login" element = {<Login />} /> 
     
         </Routes>
         <footer><Footer /></footer>
