@@ -1,4 +1,4 @@
-# Bienvenido al Lerning autogestion de Telecom
+# Bienvenido al e-learning autogestion de Telecom
 ## _Potenciamos tu mundo_
 
 EQUIPO 6 - 404 NOT FOUND
