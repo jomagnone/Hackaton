@@ -15,9 +15,9 @@ function CourseList() {
             
               <div className="columna" key ={curso.id} >
                  
-                <CourseCard name = {curso.title} 
+                <CourseCard name = {curso.titulo} 
                       stock = {curso.stock} 
-                      img = {curso.image}
+                      img = {curso.img}
                       id = {curso.id.toString()}
                       />
               </div>
