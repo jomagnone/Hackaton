@@ -55,7 +55,6 @@
 }
 
 
-
 .ContentGallery{
     width: 400px;
     margin: 5%;
@@ -76,7 +75,7 @@
 .ImgDetail{
     border-radius:5px;
     align-content:center;
-    margin-top:150px;
+    margin:100px;
     
 }
 
