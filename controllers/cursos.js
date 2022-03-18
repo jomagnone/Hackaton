@@ -1,4 +1,4 @@
-const Cursos = require("../models/cursos")
+const Cursos = require("../models/cursos");
 //const Proveedor = require("../models/proveedor")
 
 const cursosGet = async (req, res) => {
@@ -31,15 +31,12 @@ const cursosPut = async (req, res = response) => {
   res.json(cursoUpdated);
 };
 
-<<<<<<< HEAD
-=======
 const cursosGetById = async (req, res) => {
   const { id } = req.params;
-  const cursos = await Cursos.find({id_curso: id})
-  res.json(cursos)
-}
+  const cursos = await Cursos.find({ id_curso: id });
+  res.json(cursos);
+};
 
->>>>>>> a5267d42e73271b0b29e8f6d98415181eae42b2b
 const cursosPost = async (req, res = response) => {
   const {
     stock,
@@ -73,24 +70,20 @@ const cursosPost = async (req, res = response) => {
 
   res.json(newElem);
 };
-<<<<<<< HEAD
-=======
 
 const cursosDelete = async (req, res = response) => {
   const { id } = req.params;
-  let resp=await Cursos.deleteOne({ id_curso: id })
-  if (!resp.deletedCount) res.status(404).json(`EL curso id: ${id} no se encontro en la base.`)
+  let resp = await Cursos.deleteOne({ id_curso: id });
+  if (!resp.deletedCount)
+    res.status(404).json(`EL curso id: ${id} no se encontro en la base.`);
   else res.json(`Usuario id: ${id} borrado ok`);
 };
->>>>>>> a5267d42e73271b0b29e8f6d98415181eae42b2b
 
 module.exports = {
   cursosGet,
   cursosPut,
   cursosPost,
-<<<<<<< HEAD
-=======
+
   cursosGetById,
-  cursosDelete
->>>>>>> a5267d42e73271b0b29e8f6d98415181eae42b2b
+  cursosDelete,
 };
