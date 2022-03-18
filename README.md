@@ -48,3 +48,32 @@ npm install --save @fortawesome/react-fontawesome
 npm install
 npm start
 ```
+
+## Dependencias del BackEnd 
+-    "bcryptjs"
+-    "cors"
+-    "dotenv"
+-    "express"
+-    "express-validator"
+-    "mongoose"
+
+## Dependencias del FrontEnd
+-    "@emotion/react": "^11.8.2",
+-    "@emotion/styled": "^11.8.1",
+-    "@fortawesome/fontawesome-svg-core": "^6.1.0",
+-    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+-    "@fortawesome/react-fontawesome": "^0.1.18",
+-    "@material-ui/core": "^4.12.3",
+-    "@mui/material": "^5.5.1",
+-    "@testing-library/jest-dom": "^5.16.2",
+-    "@testing-library/react": "^12.1.4",
+-    "@testing-library/user-event": "^13.5.0",
+-    "boostrap": "^2.0.0",
+-    "firebase": "^9.6.9",
+-    "react": "^17.0.2",
+-    "react-bootstrap": "^2.2.1",
+-    "react-dom": "^17.0.2",
+-    "react-router-dom": "^6.2.2",
+-    "react-scripts": "5.0.0",
+-    "styled-components": "^5.3.3",
+-    "web-vitals": "^2.1.4"
