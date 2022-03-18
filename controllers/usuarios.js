@@ -17,23 +17,20 @@ const usuariosGet = async (req = request, res = response) => {
 
 const usuariosPut = async (req, res = response) => {
   const { id } = req.params;
-  const { _id, password, google, correo, ...resto } = req.body;
-
-  // TODO validar contra base de datos
+  const { nombre, apellido, legajo, password, rol } = req.body;
+  let newElem = {id_usuario:id, nombre, apellido, legajo, rol}
+  console.log(newElem)
   if (password) {
-    //Encriptar la contraseña, el genSaltSync genera el nivel de encriptacion
     const salt = bcryptjs.genSaltSync();
-    resto.password = bcryptjs.hashSync(password, salt);
+    let newPassword = bcryptjs.hashSync(password, salt);
+    newElem = {...newElem, password: newPassword}
   }
-
-  const usuario = await Usuario.findOneAndUpdate(id, resto);
-
-  res.json({ usuario });
+  await Usuario.findOneAndUpdate({ id_usuario: id }, newElem)
+  res.json(newElem);
 };
 
 const usuariosPost = async (req, res = response) => {
   const { nombre, apellido, legajo, password, rol } = req.body;
-
   let elementos = await Usuario.find();
   let newId;
   if (elementos.length == 0) {
@@ -53,20 +50,14 @@ const usuariosPost = async (req, res = response) => {
     id_usuario: newId,
   });
 
-  // Guardar en BD
   await usuario.save();
-  res.json({
-    usuario,
-  });
+  res.json(usuario);
 };
 
 const usuariosDelete = async (req, res = response) => {
   const { id } = req.params;
-  //Baja logica
-  const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
-  res.json({
-    usuario,
-  });
+  await Usuario.deleteOne({ id_usuario: id })
+  res.json(`Usuario id: ${id} borrado ok`);
 };
 
 const usuariosLogin = async (req, res = response) => {
@@ -81,7 +72,7 @@ const usuariosLogin = async (req, res = response) => {
   } else {
     const resultado = await bcryptjs.compare(password, elementos[0].password);
     resultado
-      ? res.json({ id_usuario: elementos[0].id_usuario })
+      ? res.json({id_usuario: elementos[0].id_usuario, nombre:elementos[0].nombre, legajo: elementos[0].legajo })
       : res.status(401).json({
           Error: "Contraseña mal",
         });
