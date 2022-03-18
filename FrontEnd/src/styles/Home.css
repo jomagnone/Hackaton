@@ -1,0 +1,14 @@
+
+
+.filaCarrousel{
+    position:absolute;
+    top:0px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    }

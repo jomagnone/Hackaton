@@ -1,0 +1,21 @@
+.licenciesTable{
+    min-width: 700;
+}
+
+.title{
+    font-size: 2em;
+}
+
+.textoVerde{
+    color: green;
+}
+
+.textoRojo{
+    color: red;
+}
+
+.headerTable{
+    font-weight: bold;
+    font-size: 1em;
+    background-color: whitesmoke;
+}
