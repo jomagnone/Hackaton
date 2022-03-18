@@ -1,4 +1,21 @@
-Equipo 404
+EQUIPO 6 - 404 NOT FOUND
+
+Proyecto de autogestion de licencias de aprendizaje
+
+BackEnd
+-------
+- Hacker Jr. - Cejas Matias
+- Hacker Sr - Damian del Campo
+- Hacker Jr - Emmanuel Lopez
+
+FrontEnd
+---------
+- Hacker Sr - Jonathan Magnone
+- Hacker Jr - Sandra Baronetto
+
+
+- Mentor = Santiago Miguel Díaz
+- Mentor - Nico Esposito
 
 # Bienvenido al Lerning autogestion de Telecom
 ## _Potenciamos tu mundo_
