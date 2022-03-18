@@ -8,7 +8,7 @@ Equipo 404
 
 Todos los Cursos, datos de licencias e informacion es ficticia
 
-## Features
+## Features 
 
 - Carrousel con informacion general de la plataforma
 - Autogestion por medio de my-lerning
@@ -18,7 +18,6 @@ Todos los Cursos, datos de licencias e informacion es ficticia
 - Hosting de FireBase - [LINK](https://my-learning.web.app/)
 - Repositorio en GitHub - [LINK](https://github.com/jomagnone/Hackaton)
 - Hosting de Imagenes en Storage
-
 
 
 ## Tech
