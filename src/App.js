@@ -6,6 +6,7 @@ import DetailCourse from './pages/DetailCourse';
 import MyLearning from './pages/MyLearning';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import LoginContextProvider from "./context/LoginContext";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path = "/myLearning" element = {<MyLearning />} /> 
           <Route path = "/admin" element = {<Admin />} /> 
           <Route path = "/login" element = {<Login />} /> 
+          <Route path = "/*" element = {<NotFound />} /> 
     
         </Routes>
         <footer><Footer /></footer>
