@@ -1,6 +1,6 @@
+Equipo 404
 
-
-# Bienvenido al Lerning autogestio de Telecom
+# Bienvenido al Lerning autogestion de Telecom
 ## _Potenciamos tu mundo_
 
 
@@ -11,8 +11,8 @@ Todos los Cursos, datos de licencias e informacion es ficticia
 ## Features
 
 - Carrousel con informacion general de la plataforma
-- autogestion por medio de my-lerning
-- asignacion de licencias con vigencia
+- Autogestion por medio de my-lerning
+- Asignacion de licencias con vigencia
 - Almacenamiento de datos en FireStore
 - APIs funcionales en Heroku
 - Hosting de FireBase - [LINK](https://my-learning.web.app/)
@@ -29,6 +29,7 @@ Todos los Cursos, datos de licencias e informacion es ficticia
 - [Bootstrap] 
 - [Node js]
 - [FontAwesome]
+- [MongoDB]
 
 Codigo abierto compartido en [Public Repository](https://github.com/jomagnone/OnceCirculos) de GitHub.
 
