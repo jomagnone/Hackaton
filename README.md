@@ -1,3 +1,6 @@
+# Bienvenido al Lerning autogestion de Telecom
+## _Potenciamos tu mundo_
+
 EQUIPO 6 - 404 NOT FOUND
 
 Proyecto de autogestion de licencias de aprendizaje
@@ -16,9 +19,6 @@ FrontEnd
 
 - Mentor = Santiago Miguel Díaz
 - Mentor - Nico Esposito
-
-# Bienvenido al Lerning autogestion de Telecom
-## _Potenciamos tu mundo_
 
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
