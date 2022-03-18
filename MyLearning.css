@@ -6,11 +6,9 @@
 }
 
 .details img{
-
-    width: 200px;
-    height:auto;
-    border-radius: 5px;
-
+   
+    width: 100px;
+    height: 80px;
 }
 
 .learningList {
@@ -35,13 +33,4 @@
 
 .cover {
     width: 151px;
-
   }
-.MyLearningTitle{
-    font-size:30px;
-    font-weight: bold;
-    margin-left: 25px;
-    margin-top:10px;
-    font-style:italic;
-    color:gray;
-}
