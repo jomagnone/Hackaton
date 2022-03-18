@@ -4,10 +4,30 @@ const Usuarios = require("../models/usuario");
 const Proveedor = require("../models/proveedor");
 
 const getAsignacionById = async (req, res) => {
-  //FALTA AGREGAR LOGICA DE mostrar nombre y cursos (igual q en getAsign....) 
   const { id } = req.params;
   const asignaciones = await Asignacion.find({ id_asignacion: id });
-  res.json(asignaciones);
+  let data=[]
+  let dataFinal=[]
+  let catalogo= await Cursos.find()
+  asignaciones.forEach(async (elementAsign) => {
+    catalogo.forEach(async (elementCat) => {
+      if (elementCat.id_curso==elementAsign.id_curso){
+        let newE = {...elementAsign._doc, curso: elementCat.titulo, stock_licencias: elementCat.stock}
+        data.push(newE)
+      }
+    });
+  })
+
+  let usuarios= await Usuarios.find()
+  data.forEach(async (elementData) => {
+    usuarios.forEach(async (elementUser) => {
+      if (elementUser.id_usuario==elementData.id_usuario){
+      let newEl = {...elementData, nombre: elementUser.nombre}
+      dataFinal.push(newEl)
+      }
+    })
+  })
+  res.json(dataFinal);
 };
 
 const getAsignacion = async (req, res) => {
