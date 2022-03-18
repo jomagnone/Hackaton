@@ -5,8 +5,8 @@ const AsignacionSchema = Schema({
   id_curso: { type: Number, require: true },
   id_usuario: { type: Number, require: true },
   licencia_codigo: { type: String, require: true },
-  fecha_asignacion: { type: Date, require: true },
-  vigencia: { type: Date, default: true },
+  fecha_asignacion: { type: String, require: true },
+  vigencia: { type: String, default: true },
 });
 
 AsignacionSchema.methods.toJSON = function () {

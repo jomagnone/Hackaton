@@ -18,16 +18,7 @@ const {
 const router = Router();
 
 router.get("/", usuariosGet);
-router.put(
-  "/:id",
-  [
-    check("id", "No es un id válido").isMongoId(),
-    check("id").custom(existeUsuarioPorId),
-    check("rol").custom(esRoleValido),
-    validarCampos,
-  ],
-  usuariosPut
-);
+router.put("/:id",usuariosPut);
 router.post(
   "/",
   [
@@ -43,15 +34,7 @@ router.post(
   ],
   usuariosPost
 );
-router.delete(
-  "/:id",
-  [
-    check("id", "No es un id válido").isMongoId(),
-    check("id").custom(existeUsuarioPorId),
-    validarCampos,
-  ],
-  usuariosDelete
-);
+router.delete("/:id",usuariosDelete);
 
 router.post(
   "/login",
