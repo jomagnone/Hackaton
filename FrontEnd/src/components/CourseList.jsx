@@ -1,24 +1,39 @@
 import CourseCard from '../components/CourseCard'
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import datos from '../data/courses.jsx';
+import {FetchCourseList} from '../utils/Fetch';
+
 
 function CourseList() {
 
-    
+  const [listaCursos, setListaCursos] = useState([]);
+
+  useEffect(() => {
+
+      FetchCourseList()
+          .then( result => {setListaCursos(result);
+                console.log(result);})
+          .catch(error => console.log(error)) ; 
+
+    }, []);
+
+
+
+ 
+
     return (
         
         <div className="fila">
         {
-            datos.length > 0 ?
-            datos.map(curso => (
+            listaCursos.length > 0 ?
+            listaCursos.map(curso => (
             
-              <div className="columna" key ={curso.id} >
+              <div className="columna" key ={curso.id_curso} >
                  
                 <CourseCard name = {curso.titulo} 
                       stock = {curso.stock} 
                       img = {curso.img}
-                      id = {curso.id.toString()}
+                      id = {curso.id_curso.toString()}
                       />
               </div>
              

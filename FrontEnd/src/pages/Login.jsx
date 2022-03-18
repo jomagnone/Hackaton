@@ -12,13 +12,6 @@ const Login = () => {
 
     const loginContext= useContext(LoginContext);
 
-        useEffect(() => {
-            FetchLogin(user.legajo, user.pass)
-                .then(result => console.log(result)) // esto deveria devolver idUser para guardar en el context
-                .catch(err => console.log(err));
-
-        }, [user]);
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,8 +19,13 @@ const Login = () => {
             legajo: event.target[0].value,
             pass: event.target[1].value
         }
-        setUser(user);
-        console.log(user);
+        let respuesta=FetchLogin(user.legajo, user.pass)
+                .then( result => {setUser(result);
+                        loginContext.addLogin(result);
+                        
+                    }) ; 
+        
+
         
     }
 
