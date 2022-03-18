@@ -10,7 +10,7 @@ function CourseCard(props) {
 
     return (
         <div className="CardCointainer">
-                <Link to = {`/product/${props.id}`}>
+                <Link to = {`/course/${props.id}`}>
                 <Card className="CardItem" 
                     bg='Light'
                     border="secondary">
