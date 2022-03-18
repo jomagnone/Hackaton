@@ -9,10 +9,10 @@ function CourseDetail ({data})  {
     return (
         <div className="fila">
             <div className="ImgGallery columnGalerry">
-                <img className = "ImgDetail" src={data.image} />
+                <img className = "ImgDetail" src={data.img} />
             </div>  
             <div className="columnGalerry" >
-                <div className="title" >{data.title}</div>
+                <div className="title" >{data.titulo}</div>
                 <div className="description" >{data.description}</div>
                 <div className="stock" ><b>Stock: </b>{data.stock}</div>
                 <Link to="/myLearning"> <Button variant="success">Anotarse</Button>{''} </Link> 

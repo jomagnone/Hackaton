@@ -7,10 +7,12 @@ import MyLearning from './pages/MyLearning';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import LoginContextProvider from "./context/LoginContext";
 
 
 function App() {
   return (
+    <LoginContextProvider>
     <div className="App">
       <header className="App-header">
       <BrowserRouter>
@@ -28,6 +30,7 @@ function App() {
       </BrowserRouter>
       </header>
     </div>
+    </LoginContextProvider>
   );
 }
 
