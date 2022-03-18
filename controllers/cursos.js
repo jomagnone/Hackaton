@@ -1,4 +1,5 @@
 const Cursos = require("../models/cursos")
+//const Proveedor = require("../models/proveedor")
 
 const cursosGet = async (req, res) => {
   const cursos = await Cursos.find()
@@ -36,26 +37,18 @@ const cursosPost = async (req, res = response) => {
 
   res.json(newElem);
 };
-/*
-const usuariosDelete = async (req, res = response) => {
+
+const cursosDelete = async (req, res = response) => {
   const { id } = req.params;
-
-  //Fisicamente lo borramos
-  // const usuario = await Usuario.findByIdAndDelete(id);
-
-  //Baja logica
-  const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
-
-  res.json({
-    usuario,
-  });
+  let resp=await Cursos.deleteOne({ id_curso: id })
+  if (!resp.deletedCount) res.status(404).json(`EL curso id: ${id} no se encontro en la base.`)
+  else res.json(`Usuario id: ${id} borrado ok`);
 };
 
-*/
 module.exports = {
   cursosGet,
   cursosPut,
   cursosPost,
-  cursosGetById
-  //cursosDelete,
+  cursosGetById,
+  cursosDelete
 };

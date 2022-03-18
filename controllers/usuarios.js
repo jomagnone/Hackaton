@@ -56,8 +56,9 @@ const usuariosPost = async (req, res = response) => {
 
 const usuariosDelete = async (req, res = response) => {
   const { id } = req.params;
-  await Usuario.deleteOne({ id_usuario: id })
-  res.json(`Usuario id: ${id} borrado ok`);
+  let resp=await Usuario.deleteOne({ id_usuario: id })
+  if (!resp.deletedCount) res.status(404).json(`El usuario id: ${id} no se encontro en la base.`)
+  else  res.json(`Usuario id: ${id} borrado ok`);
 };
 
 const usuariosLogin = async (req, res = response) => {
