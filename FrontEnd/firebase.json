@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "my-learning",
-    "public": "build",
+    "public": "FrontEnd/build",
     "ignore": [
       "firebase.json",
       "**/.*",
